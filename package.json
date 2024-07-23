@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "data-structures",
+  "name": "@dachendev/data-structures",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
