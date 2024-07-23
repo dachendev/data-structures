@@ -3,6 +3,10 @@
   "name": "@dachendev/data-structures",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dachendev/data-structures.git"
+  },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
