@@ -29,6 +29,20 @@ export class LinkedList<TValue> {
     this.size++;
   }
 
+  insertAtEnd(value: TValue): void {
+    const newNode = new Node(value);
+    if (!this.firstNode) {
+      this.firstNode = newNode;
+    } else {
+      let currentNode = this.firstNode;
+      while (currentNode.next) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = newNode;
+    }
+    this.size++;
+  }
+
   toArray(): TValue[] {
     const valueArray: TValue[] = [];
     let currentNode = this.firstNode;

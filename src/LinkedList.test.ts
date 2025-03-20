@@ -19,4 +19,12 @@ describe('LinkedList', () => {
     expect(list.toArray()).toStrictEqual([2, 1]);
     expect(list.size).toBe(2);
   });
+
+  it('should insert values at the end', () => {
+    list.insertAtEnd(1);
+    expect(list.toArray()).toStrictEqual([1]);
+    list.insertAtEnd(2);
+    expect(list.toArray()).toStrictEqual([1, 2]);
+    expect(list.size).toBe(2);
+  });
 });
