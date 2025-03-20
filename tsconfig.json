@@ -1,5 +1,7 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "types": ["vitest/globals"]
+  },
   "include": ["**/*"],
   "exclude": ["node_modules"]
 }
