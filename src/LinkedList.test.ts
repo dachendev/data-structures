@@ -50,6 +50,12 @@ describe('LinkedList', () => {
       expect(list.toArray()).toStrictEqual([1, 2]);
     });
 
+    it('should insert values at an index', () => {
+      list.insertAtIndex(1, 3);
+      expect(list.toArray()).toStrictEqual([1, 3, 2]);
+      expect(list.size).toBe(3);
+    });
+
     it('should get the first value', () => {
       expect(list.getFirst()).toBe(1);
     });
