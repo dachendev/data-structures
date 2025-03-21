@@ -44,6 +44,14 @@ export class LinkedList<TValue> {
     this.size++;
   }
 
+  getFirst(): TValue | undefined {
+    return this.firstNode?.value;
+  }
+
+  getLast(): TValue | undefined {
+    return this.lastNode?.value;
+  }
+
   contains(value: TValue): boolean {
     let currentNode = this.firstNode;
     while (currentNode) {

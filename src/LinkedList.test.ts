@@ -34,6 +34,14 @@ describe('LinkedList', () => {
       list.insertAtEnd(2);
     });
 
+    it('should get the first value', () => {
+      expect(list.getFirst()).toBe(1);
+    });
+
+    it('should get the last value', () => {
+      expect(list.getLast()).toBe(2);
+    });
+
     it('should check if contains a value', () => {
       expect(list.contains(1)).toBe(true);
       expect(list.contains(1000)).toBe(false);
