@@ -86,6 +86,12 @@ describe('LinkedList', () => {
       expect(list.size).toBe(0);
     });
 
+    it('should pop value by index', () => {
+      expect(list.popAtIndex(0)).toBe(1);
+      expect(list.popAtIndex(0)).toBe(2);
+      expect(list.size).toBe(0);
+    });
+
     it('should clear all values', () => {
       list.clear();
       expect(list.size).toBe(0);

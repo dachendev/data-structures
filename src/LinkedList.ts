@@ -146,6 +146,28 @@ export class LinkedList<TValue> {
     return popNode.value;
   }
 
+  popAtIndex(index: number): TValue {
+    if (index === 0) {
+      return this.popFirst();
+    }
+
+    if (index < 0 || index >= this.size) {
+      throw new Error('Index out of bounds');
+    }
+
+    let currentNode = this.firstNode;
+    for (let j = 0; j < index - 1; j++) {
+      currentNode = currentNode.next;
+    }
+    const popNode = currentNode.next;
+    currentNode.next = currentNode.next.next;
+    if (!currentNode.next) {
+      this.lastNode = currentNode;
+    }
+    this.size--;
+    return popNode.value;
+  }
+
   clear(): void {
     this.firstNode = null;
     this.lastNode = this.firstNode;
