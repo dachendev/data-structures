@@ -69,6 +69,8 @@ describe('LinkedList', () => {
     });
 
     it('should insert multiple values at an index', () => {
+      expect(() => list.insertAtIndex(-1, 1)).toThrowError();
+      expect(() => list.insertAtIndex(1000, 1)).toThrowError();
       list.insertAtIndex(1, 3, 4, 5);
       expect(list.toArray()).toStrictEqual([1, 3, 4, 5, 2]);
       expect(list.size).toBe(5);
@@ -83,6 +85,8 @@ describe('LinkedList', () => {
     });
 
     it('should get value by index', () => {
+      expect(() => list.insertAtIndex(-1, 1)).toThrowError();
+      expect(() => list.insertAtIndex(1000, 1)).toThrowError();
       expect(list.getAtIndex(0)).toBe(1);
       expect(list.getAtIndex(1)).toBe(2);
     });
@@ -95,18 +99,22 @@ describe('LinkedList', () => {
     it('should pop the first value', () => {
       expect(list.popFirst()).toBe(1);
       expect(list.popFirst()).toBe(2);
+      expect(list.popFirst()).toBeUndefined();
       expect(list.size).toBe(0);
     });
 
     it('should pop the last value', () => {
       expect(list.popLast()).toBe(2);
       expect(list.popLast()).toBe(1);
+      expect(list.popLast()).toBeUndefined();
       expect(list.size).toBe(0);
     });
 
     it('should pop value by index', () => {
+      expect(() => list.insertAtIndex(-1, 1)).toThrowError();
+      expect(() => list.insertAtIndex(1000, 1)).toThrowError();
+      expect(list.popAtIndex(1)).toBe(2);
       expect(list.popAtIndex(0)).toBe(1);
-      expect(list.popAtIndex(0)).toBe(2);
       expect(list.size).toBe(0);
     });
 
