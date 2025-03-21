@@ -63,6 +63,12 @@ describe('LinkedList', () => {
       expect(list.contains(1000)).toBe(false);
     });
 
+    it('should pop the last value', () => {
+      expect(list.pop()).toBe(2);
+      expect(list.pop()).toBe(1);
+      expect(list.size).toBe(0);
+    });
+
     it('should clear all values', () => {
       list.clear();
       expect(list.size).toBe(0);
