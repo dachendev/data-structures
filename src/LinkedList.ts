@@ -42,28 +42,31 @@ export class LinkedList<TValue> {
     return this.size === 0;
   }
 
-  insertAtBeginning(value: TValue): void {
-    const newNode = new Node(value);
-    if (!this.firstNode) {
-      this.firstNode = newNode;
-      this.lastNode = this.firstNode;
-    } else {
-      newNode.next = this.firstNode;
-      this.firstNode = newNode;
+  insertAtBeginning(...values: TValue[]): void {
+    for (let i = values.length - 1; i >= 0; i--) {
+      const newNode = new Node(values[i]);
+      if (!this.firstNode) {
+        this.firstNode = this.lastNode = newNode;
+      } else {
+        newNode.next = this.firstNode;
+        this.firstNode = newNode;
+      }
+      this.size++;
     }
-    this.size++;
   }
 
-  insertAtEnd(value: TValue): void {
-    const newNode = new Node(value);
-    if (!this.firstNode) {
-      this.firstNode = newNode;
-      this.lastNode = this.firstNode;
-    } else {
-      this.lastNode.next = newNode;
-      this.lastNode = this.lastNode.next;
+  insertAtEnd(...values: TValue[]): void {
+    for (const value of values) {
+      const newNode = new Node(value);
+      if (!this.firstNode) {
+        this.firstNode = newNode;
+        this.lastNode = this.firstNode;
+      } else {
+        this.lastNode.next = newNode;
+        this.lastNode = this.lastNode.next;
+      }
+      this.size++;
     }
-    this.size++;
   }
 
   insertAtIndex(index: number, value: TValue): void {
