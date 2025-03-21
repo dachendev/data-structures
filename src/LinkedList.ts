@@ -73,7 +73,21 @@ export class LinkedList<TValue> {
     return false;
   }
 
-  pop(): TValue | undefined {
+  popFirst(): TValue | undefined {
+    if (!this.firstNode) {
+      return undefined;
+    }
+
+    const popNode = this.firstNode;
+    this.firstNode = this.firstNode.next;
+    if (!this.firstNode || !this.firstNode.next) {
+      this.lastNode = this.firstNode;
+    }
+    this.size--;
+    return popNode.value;
+  }
+
+  popLast(): TValue | undefined {
     if (!this.firstNode) {
       return undefined;
     }

@@ -63,9 +63,15 @@ describe('LinkedList', () => {
       expect(list.contains(1000)).toBe(false);
     });
 
+    it('should pop the first value', () => {
+      expect(list.popFirst()).toBe(1);
+      expect(list.popFirst()).toBe(2);
+      expect(list.size).toBe(0);
+    });
+
     it('should pop the last value', () => {
-      expect(list.pop()).toBe(2);
-      expect(list.pop()).toBe(1);
+      expect(list.popLast()).toBe(2);
+      expect(list.popLast()).toBe(1);
       expect(list.size).toBe(0);
     });
 
