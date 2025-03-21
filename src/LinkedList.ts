@@ -69,18 +69,25 @@ export class LinkedList<TValue> {
     }
   }
 
-  insertAtIndex(index: number, value: TValue): void {
+  insertAtIndex(index: number, ...values: TValue[]): void {
     if (index < 0 || index >= this.size) {
       throw new Error('Index out of bounds');
     }
+
     let currentNode = this.firstNode;
     for (let j = 0; j < index - 1; j++) {
       currentNode = currentNode.next;
     }
-    const newNode = new Node(value);
-    newNode.next = currentNode.next;
-    currentNode.next = newNode;
-    this.size++;
+
+    const trailingNode = currentNode.next;
+
+    for (const value of values) {
+      currentNode.next = new Node(value);
+      this.size++;
+      currentNode = currentNode.next;
+    }
+
+    currentNode.next = trailingNode;
   }
 
   getFirst(): TValue | undefined {
