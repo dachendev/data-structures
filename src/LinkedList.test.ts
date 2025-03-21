@@ -27,4 +27,16 @@ describe('LinkedList', () => {
     expect(list.toArray()).toStrictEqual([1, 2]);
     expect(list.size).toBe(2);
   });
+
+  describe('with values', () => {
+    beforeEach(() => {
+      list.insertAtEnd(1);
+      list.insertAtEnd(2);
+    });
+
+    it('should check if contains a value', () => {
+      expect(list.contains(1)).toBe(true);
+      expect(list.contains(1000)).toBe(false);
+    });
+  });
 });

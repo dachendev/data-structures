@@ -44,6 +44,17 @@ export class LinkedList<TValue> {
     this.size++;
   }
 
+  contains(value: TValue): boolean {
+    let currentNode = this.firstNode;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
+
   toArray(): TValue[] {
     const valueArray: TValue[] = [];
     let currentNode = this.firstNode;
