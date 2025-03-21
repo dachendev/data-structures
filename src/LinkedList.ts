@@ -7,10 +7,12 @@ class Node<TValue> {
 
 export class LinkedList<TValue> {
   firstNode: Node<TValue> | null;
+  lastNode: Node<TValue> | null;
   size: number;
 
   constructor() {
     this.firstNode = null;
+    this.lastNode = this.firstNode;
     this.size = 0;
   }
 
@@ -22,6 +24,7 @@ export class LinkedList<TValue> {
     const newNode = new Node(value);
     if (!this.firstNode) {
       this.firstNode = newNode;
+      this.lastNode = this.firstNode;
     } else {
       newNode.next = this.firstNode;
       this.firstNode = newNode;
@@ -33,12 +36,10 @@ export class LinkedList<TValue> {
     const newNode = new Node(value);
     if (!this.firstNode) {
       this.firstNode = newNode;
+      this.lastNode = this.firstNode;
     } else {
-      let currentNode = this.firstNode;
-      while (currentNode.next) {
-        currentNode = currentNode.next;
-      }
-      currentNode.next = newNode;
+      this.lastNode.next = newNode;
+      this.lastNode = this.lastNode.next;
     }
     this.size++;
   }
