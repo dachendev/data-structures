@@ -16,6 +16,18 @@ export class LinkedList<TValue> {
     this.size = 0;
   }
 
+  *[Symbol.iterator]() {
+    let currentNode = this.firstNode;
+    while (currentNode) {
+      yield currentNode.value;
+      currentNode = currentNode.next;
+    }
+  }
+
+  toArray(): TValue[] {
+    return [...this];
+  }
+
   isEmpty(): boolean {
     return this.size === 0;
   }
@@ -53,12 +65,10 @@ export class LinkedList<TValue> {
   }
 
   contains(value: TValue): boolean {
-    let currentNode = this.firstNode;
-    while (currentNode) {
-      if (currentNode.value === value) {
+    for (const currentValue of this) {
+      if (currentValue === value) {
         return true;
       }
-      currentNode = currentNode.next;
     }
     return false;
   }
@@ -67,15 +77,5 @@ export class LinkedList<TValue> {
     this.firstNode = null;
     this.lastNode = this.firstNode;
     this.size = 0;
-  }
-
-  toArray(): TValue[] {
-    const valueArray: TValue[] = [];
-    let currentNode = this.firstNode;
-    while (currentNode) {
-      valueArray.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
-    return valueArray;
   }
 }

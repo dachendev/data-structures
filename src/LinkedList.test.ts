@@ -34,6 +34,22 @@ describe('LinkedList', () => {
       list.insertAtEnd(2);
     });
 
+    it('should be iterable', () => {
+      expect(typeof list[Symbol.iterator]).toBe('function');
+    });
+
+    it('should iterate through the values', () => {
+      const valueArray = [];
+      for (const value of list) {
+        valueArray.push(value);
+      }
+      expect(valueArray).toStrictEqual([1, 2]);
+    });
+
+    it('should transform to an array of values', () => {
+      expect(list.toArray()).toStrictEqual([1, 2]);
+    });
+
     it('should get the first value', () => {
       expect(list.getFirst()).toBe(1);
     });
