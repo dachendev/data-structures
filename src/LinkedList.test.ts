@@ -64,6 +64,11 @@ describe('LinkedList', () => {
       expect(list.getLast()).toBe(2);
     });
 
+    it('should get value by index', () => {
+      expect(list.getAtIndex(0)).toBe(1);
+      expect(list.getAtIndex(1)).toBe(2);
+    });
+
     it('should check if contains a value', () => {
       expect(list.contains(1)).toBe(true);
       expect(list.contains(1000)).toBe(false);

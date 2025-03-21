@@ -16,11 +16,21 @@ export class LinkedList<TValue> {
     this.size = 0;
   }
 
-  *[Symbol.iterator]() {
+  *[Symbol.iterator](): Generator<TValue> {
     let currentNode = this.firstNode;
     while (currentNode) {
       yield currentNode.value;
       currentNode = currentNode.next;
+    }
+  }
+
+  *entries(): Generator<[number, TValue]> {
+    let currentNode = this.firstNode;
+    let currentIndex = 0;
+    while (currentNode) {
+      yield [currentIndex, currentNode.value];
+      currentNode = currentNode.next;
+      currentIndex++;
     }
   }
 
@@ -76,6 +86,17 @@ export class LinkedList<TValue> {
 
   getLast(): TValue | undefined {
     return this.lastNode?.value;
+  }
+
+  getAtIndex(index: number): TValue {
+    if (index < 0 || index >= this.size) {
+      throw new Error('Index out of bounds');
+    }
+    for (const [currentIndex, currentValue] of this.entries()) {
+      if (currentIndex === index) {
+        return currentValue;
+      }
+    }
   }
 
   contains(value: TValue): boolean {
