@@ -55,6 +55,12 @@ export class LinkedList<TValue> {
     return false;
   }
 
+  clear(): void {
+    this.firstNode = null;
+    this.lastNode = this.firstNode;
+    this.size = 0;
+  }
+
   toArray(): TValue[] {
     const valueArray: TValue[] = [];
     let currentNode = this.firstNode;

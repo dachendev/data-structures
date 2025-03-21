@@ -38,5 +38,11 @@ describe('LinkedList', () => {
       expect(list.contains(1)).toBe(true);
       expect(list.contains(1000)).toBe(false);
     });
+
+    it('should clear all values', () => {
+      list.clear();
+      expect(list.size).toBe(0);
+      expect(list.isEmpty()).toBe(true);
+    });
   });
 });
