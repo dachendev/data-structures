@@ -1,6 +1,6 @@
 # Data Structures
 
-This repository contains implementations of common data structures and algorithms in multiple languages. It’s meant for studying, practicing problem-solving, and improving coding skills. Each implementation includes explanations and example usage.
+This repository contains implementations of common data structures and algorithms. It’s meant for studying, practicing problem-solving, and improving coding skills. Each implementation includes explanations and example usage.
 
 ## Runtime Analysis
 

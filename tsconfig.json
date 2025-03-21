@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "types": ["vitest/globals"]
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules"]
+}
